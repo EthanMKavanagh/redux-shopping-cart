@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 class ProductForm extends Component {
     // You will need to keep this state in this component
@@ -29,7 +30,10 @@ class ProductForm extends Component {
     addProduct = (event) => {
         event.preventDefault();
         // TODO: Dispatch here
-        this.props.addNewProduct(this.state.productToAdd);
+        this.props.dispatch({
+            method: 'ADD_NEW_PRODUCT',
+            payload: event.target.value
+        });
     }
 
     render() {
@@ -43,4 +47,4 @@ class ProductForm extends Component {
     }
 }
 
-export default ProductForm;
+export default connect()(ProductForm);

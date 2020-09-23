@@ -20,6 +20,13 @@ const productReducer = (state = products, action) => {
     if (action.type === 'ADD_NEW_PRODUCT') {
         return [...state, action.payload];
     }
+
+    if (action.type === 'ADD_NEW_PRODUCT') {
+        return {
+            ...state,
+            products: action.payload
+        }
+    }
     return state;
 };
 
