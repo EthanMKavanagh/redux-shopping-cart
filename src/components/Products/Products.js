@@ -22,4 +22,4 @@ const mapStateToProps = (reduxState) => {
     };
 }
 
-export default connect()(Products);
+export default connect(mapStateToProps)(Products);

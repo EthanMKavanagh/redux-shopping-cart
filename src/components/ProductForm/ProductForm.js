@@ -30,9 +30,10 @@ class ProductForm extends Component {
     addProduct = (event) => {
         event.preventDefault();
         // TODO: Dispatch here
+        console.log('this.state.productToAdd', this.state.productToAdd);
         this.props.dispatch({
-            method: 'ADD_NEW_PRODUCT',
-            payload: event.target.value
+            type: 'ADD_NEW_PRODUCT',
+            payload: this.state.productToAdd
         });
     }
 
@@ -47,4 +48,7 @@ class ProductForm extends Component {
     }
 }
 
+const mapStateToProps = (reduxState) => ({
+    products: reduxState.products
+});
 export default connect()(ProductForm);
