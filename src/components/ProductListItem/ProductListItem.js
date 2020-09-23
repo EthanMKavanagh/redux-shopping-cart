@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 class ProductListItem extends Component {
 
@@ -11,10 +13,12 @@ class ProductListItem extends Component {
     render() {
         return (
             <li>
-                {this.props.product.name}: {this.props.product.price} <button onClick={this.addProductToCart}>Add to Cart</button>
+                {this.props.product.name}: {this.props.product.price} <button 
+                onClick={this.addProductToCart}
+                >Add to Cart</button>
             </li>
         )
     }
 }
 
-export default ProductListItem;
+export default connect()(withRouter(ProductListItem));

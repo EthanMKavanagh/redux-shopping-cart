@@ -14,6 +14,7 @@ const products = [
     { name: `Frosted Flakes`, price: 3.98 },
 ];
 
+
 // Array of products, this reducer is complete
 const productReducer = (state = products, action) => {
     if (action.type === 'ADD_NEW_PRODUCT') {
@@ -32,8 +33,8 @@ const checkoutReducer = (state = [], action) => {
 // The store is the big JavaScript Object that holds all of the information for our application
 const storeInstance = createStore(
     combineReducers({
-        productReducer,
-        checkoutReducer
+        products: productReducer,
+        checkout: checkoutReducer
     }),    
 );
 
