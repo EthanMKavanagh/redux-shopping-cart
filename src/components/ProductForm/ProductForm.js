@@ -51,4 +51,4 @@ class ProductForm extends Component {
 const mapStateToProps = (reduxState) => ({
     products: reduxState.products
 });
-export default connect()(ProductForm);
+export default connect(mapStateToProps)(ProductForm);

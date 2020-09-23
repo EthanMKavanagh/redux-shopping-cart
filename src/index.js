@@ -15,6 +15,7 @@ const products = [
 ];
 
 
+
 // Array of products, this reducer is complete
 const productReducer = (state = products, action) => {
     if (action.type === 'ADD_NEW_PRODUCT') {
@@ -24,11 +25,18 @@ const productReducer = (state = products, action) => {
     return state;
 };
 
+const checkout = [];
 // Items in the cart, this reducer is incomplete
-const checkoutReducer = (state = [], action) => {
+const checkoutReducer = (state = checkout, action) => {
     // TODO: Products added to the cart
-    
+    if (action.type === 'ADD_PRODUCT_TO_CART'){
+        console.log('action.payload:', action.payload);
+        console.log('checkout:', checkout);
+        return [...state, action.payload];
+    }
+
     return state;
+
 };
 
 // The store is the big JavaScript Object that holds all of the information for our application
